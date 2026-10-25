@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#080b12">
+  <title>Rift Bounce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" width="1280" height="720" aria-label="Rift Bounce 게임 화면"></canvas>
+    <section id="menu" class="screen active">
+      <div class="title-lockup"><p class="eyebrow">PIXEL ARENA</p><h1>RIFT<br><span>BOUNCE</span></h1><p class="tagline">튕겨 오르고, 기술을 잇고, 마지막 한 명이 되어라.</p></div>
+      <button id="playBtn" class="primary">대전 시작</button><button id="howBtn" class="secondary">조작 방법</button>
+      <p class="version">ORIGINAL WEB FIGHTER · v1.0</p>
+    </section>
+    <section id="select" class="screen">
+      <header class="select-header"><p>전투원을 선택하세요</p><h2>SELECT FIGHTER</h2></header>
+      <div id="roster" class="roster"></div><div id="fighterDetail" class="fighter-detail"></div>
+      <button id="fightBtn" class="primary" disabled>선택 완료</button><button class="back-btn" data-back="menu" aria-label="뒤로">←</button>
+    </section>
+    <section id="how" class="screen"><div class="panel"><p class="eyebrow">HOW TO PLAY</p><h2>조작 방법</h2>
+      <div class="key-grid"><div><kbd>A</kbd><kbd>D</kbd><span>좌우 이동</span></div><div><kbd>W</kbd><span>점프</span></div><div><kbd>J</kbd><span>기술 1</span></div><div><kbd>K</kbd><span>기술 2</span></div><div><kbd>L</kbd><span>궁극기</span></div></div>
+      <p class="tip">상대를 공격하면 기력이 차오릅니다. 경기장 아래로 떨어지면 피해를 받고 중앙에서 다시 시작합니다.</p><button class="primary" data-back="menu">확인</button>
+    </div></section>
+    <section id="result" class="screen"><p class="eyebrow">BATTLE FINISHED</p><h2 id="resultTitle">승리</h2><p id="resultStats"></p><button id="rematchBtn" class="primary">다시 대전</button><button class="secondary" data-back="menu">메인 메뉴</button></section>
+    <div id="hud" class="hud" hidden><div class="status"><div class="name-row"><strong id="pName">PLAYER</strong><span>1P</span></div><div class="bar hp"><i id="pHp"></i></div><div class="bar energy"><i id="pEnergy"></i></div></div><div id="timer" class="timer">99</div><div class="status enemy-status"><div class="name-row"><span>CPU</span><strong id="eName">RIVAL</strong></div><div class="bar hp"><i id="eHp"></i></div><div class="bar energy"><i id="eEnergy"></i></div></div></div>
+    <div id="announcement" class="announcement" hidden></div><button id="pauseBtn" class="pause" hidden aria-label="일시정지">Ⅱ</button>
+    <div id="touchControls" class="touch-controls" hidden><div class="move-pad"><button data-key="a" aria-label="왼쪽">◀</button><button data-key="w" aria-label="점프">▲</button><button data-key="d" aria-label="오른쪽">▶</button></div><div class="skill-pad"><button data-key="j"><small>J</small><span>기술 1</span></button><button data-key="k"><small>K</small><span>기술 2</span></button><button class="ultimate" data-key="l"><small>L</small><span>궁극기</span></button></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
