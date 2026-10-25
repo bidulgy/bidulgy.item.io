@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#080b12">
   <title>Rift Bounce</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <main class="game-shell">
@@ -18,7 +18,7 @@
     <section id="online" class="screen"><div class="panel online-panel"><p class="eyebrow">ONLINE 1 VS 1</p><h2>온라인 대전</h2><label class="field-label" for="onlineFighter">내 캐릭터</label><select id="onlineFighter"><option value="0">브랜드 · 화염술사</option></select><div class="online-actions"><button id="createRoomBtn" class="primary">방 만들기</button><div class="divider"><span>또는</span></div><div class="join-row"><input id="roomCodeInput" maxlength="6" placeholder="방 코드 6자리" autocomplete="off"><button id="joinRoomBtn" class="secondary">참가</button></div></div><div id="roomInfo" class="room-info" hidden><span>방 코드</span><strong id="roomCode">------</strong><button id="copyCodeBtn" class="copy-btn">코드 복사</button></div><p id="networkStatus" class="network-status">방을 만들거나 친구의 코드를 입력하세요.</p><button id="cancelOnlineBtn" class="secondary">취소</button></div></section>
     <section id="select" class="screen">
       <header class="select-header"><h2>브랜드</h2></header>
-      <div class="versus-preview"><div class="preview-side"><canvas id="pPreview" width="260" height="180"></canvas><strong>1P</strong></div><div class="random-box">VS</div><div class="preview-side enemy-preview"><canvas id="ePreview" width="260" height="180"></canvas><strong>CPU</strong></div></div>
+      <div class="versus-preview"><div class="preview-side"><canvas id="pPreview" width="340" height="180"></canvas><strong>1P</strong></div><div class="random-box">VS</div><div class="preview-side enemy-preview"><canvas id="ePreview" width="340" height="180"></canvas><strong>CPU</strong></div></div>
       <div id="roster" class="roster"></div><div id="fighterDetail" class="fighter-detail"></div>
       <button id="fightBtn" class="primary" disabled>다음</button><button class="back-btn" data-back="menu" aria-label="뒤로">←</button>
     </section>
@@ -34,6 +34,6 @@
     <div id="touchControls" class="touch-controls" hidden><div class="move-pad"><button data-key="a" aria-label="왼쪽">◀</button><button data-key="w" aria-label="점프">▲</button><button data-key="d" aria-label="오른쪽">▶</button></div><div class="skill-pad"><button data-key="e"><small>E</small><span>기본기</span></button><button data-key="r"><small>R</small><span>2번 기술</span></button><button class="ultimate" data-key="t"><small>T</small><span>궁극기</span></button></div></div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
-  <script src="game.js"></script>
+  <script src="game.js?v=4"></script>
 </body>
 </html>
