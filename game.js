@@ -4,7 +4,7 @@ ctx.imageSmoothingEnabled=false;
 const mageSprite=new Image(),mageBodySprite=new Image(),ultimateRiseSprite=new Image(),ultimateFallSprite=new Image();
 const keys=Object.create(null),pressed=Object.create(null);
 const fighters=[
- {id:"ember",name:"브랜드",title:"화염술사",color:"#ff1018",accent:"#ff2b20",speed:285,power:1,skills:["화염구","폭발 표식","운석 강하"],costs:[0,32,78],delays:[2,3,1.4],desc:"화염구로 견제하고 폭발 표식을 남긴 뒤, 운석처럼 내려찍는 화염술사."}
+ {id:"ember",name:"브랜드",title:"화염술사",color:"#ff1018",accent:"#ff2b20",speed:205,power:1,skills:["화염구","폭발 표식","운석 강하"],costs:[0,32,78],delays:[2,3,1.4],desc:"화염구로 견제하고 폭발 표식을 남긴 뒤, 운석처럼 내려찍는 화염술사."}
 ];
 let mode="menu",selected=null,player,enemy,projectiles=[],particles=[],damageTexts=[],shake=0,cameraX=0,matchTime=99,elapsed=0,last=performance.now(),paused=false,roundLive=false,hits=0,audioCtx;
 let battleType="ai",peer=null,conn=null,netRole=null,remoteKeys=Object.create(null),remotePressed=Object.create(null),lastSync=0;
@@ -62,7 +62,7 @@ function drawFlame(g,pose){const pulse=1+Math.min(.12,pose*.18);g.save();g.trans
  g.beginPath();g.moveTo(-9,20);g.lineTo(-11,3);g.lineTo(-3,-7);g.lineTo(3,-25);g.lineTo(9,-9);g.lineTo(18,-20);g.lineTo(18,-5);g.lineTo(27,-13);g.lineTo(28,7);g.lineTo(20,20);g.lineTo(10,26);g.lineTo(-4,23);g.closePath();g.fillStyle="#ef0710";g.fill();
  g.beginPath();g.moveTo(3,18);g.lineTo(4,7);g.lineTo(9,-6);g.lineTo(13,4);g.lineTo(18,-5);g.lineTo(21,8);g.lineTo(18,18);g.lineTo(11,22);g.closePath();g.fillStyle="#fff000";g.fill();g.restore()}
 function drawFighter(g,x,y,s,f,face,pose,portrait=false,fireReady=true){g.save();g.translate(x,y);g.scale(face*s,s);g.translate(0,portrait?0:Math.sin(performance.now()/110)*1.5);
- if(fireReady&&mageSprite.complete&&mageSprite.naturalWidth){g.imageSmoothingEnabled=false;g.drawImage(mageSprite,-34,-42,106,84)}else circle(g,0,0,36,f.color,"#050507",7)
+ circle(g,4,-1,40,"#050507",null,0);if(fireReady&&mageSprite.complete&&mageSprite.naturalWidth){g.imageSmoothingEnabled=false;g.drawImage(mageSprite,-34,-42,106,84)}else circle(g,4,-1,31,f.color,null,0)
  g.restore()}
 function drawPlayerTag(g,x,y,text){g.save();g.font="900 28px Impact, Arial Black, sans-serif";g.textAlign="center";g.textBaseline="bottom";g.lineJoin="round";g.lineWidth=6;g.strokeStyle="#f7ffff";g.strokeText(text,x,y);g.fillStyle="#28e1e7";g.fillText(text,x,y);g.restore()}
 function drawDamageNumbers(g){g.save();g.font="900 24px Arial Black, sans-serif";g.textAlign="center";g.textBaseline="middle";g.lineJoin="round";for(const d of damageTexts){g.globalAlpha=Math.min(1,d.life*2.5);g.lineWidth=5;g.strokeStyle="#3b0000";g.strokeText(String(d.value),d.x,d.y);g.fillStyle="#ff1717";g.fillText(String(d.value),d.x,d.y)}g.restore()}
