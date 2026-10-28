@@ -21,3 +21,6 @@
 /* Larger, high-resolution character inspection area. */
 @media (min-width:801px){.versus-preview{grid-template-columns:minmax(280px,440px) 72px minmax(280px,440px);width:min(1040px,94vw);gap:16px}.preview-side{height:240px}.preview-side canvas{width:min(100%,440px)}}
 @media (max-width:800px){.versus-preview{width:96vw}.preview-side{height:170px}.preview-side canvas{width:min(100%,300px)}}
+
+/* Keep the battlefield clear; keyboard controls remain active. */
+.skill-hud,.touch-controls,.touch-controls:not([hidden]){display:none!important}.sound-toggle{top:14px;bottom:auto}.pause{top:14px;right:15px;bottom:auto}
