@@ -20,7 +20,7 @@
       <header class="select-header"><h2>브랜드</h2></header>
       <div class="versus-preview"><div class="preview-side"><canvas id="pPreview" width="440" height="230"></canvas><strong>1P</strong></div><div class="random-box">VS</div><div class="preview-side enemy-preview"><canvas id="ePreview" width="440" height="230"></canvas><strong>CPU</strong></div></div>
       <div id="roster" class="roster"></div><div id="fighterDetail" class="fighter-detail"></div>
-      <button id="fightBtn" class="primary" disabled>다음</button><button class="back-btn" data-back="menu" aria-label="뒤로">←</button>
+      <button id="reselectP1Btn" class="secondary" hidden>1P 다시 선택</button><button id="fightBtn" class="primary" disabled>다음</button><button class="back-btn" data-back="menu" aria-label="뒤로">←</button>
     </section>
     <section id="mapSelect" class="screen"><header class="map-header"><h2>MAP SELECT</h2></header><button id="plainMapBtn" class="map-card"><span class="plain-preview"><i></i></span><strong>황야</strong></button><button class="back-btn" data-back="select" aria-label="뒤로">←</button></section>
     <section id="how" class="screen"><div class="panel"><p class="eyebrow">HOW TO PLAY</p><h2>조작 방법</h2>
@@ -34,6 +34,6 @@
     <div id="touchControls" class="touch-controls" hidden><div class="move-pad"><button data-key="a" aria-label="왼쪽">◀</button><button data-key="w" aria-label="점프">▲</button><button data-key="d" aria-label="오른쪽">▶</button></div><div class="skill-pad"><button data-key="e"><small>E</small><span>기본기</span></button><button data-key="r"><small>R</small><span>2번 기술</span></button><button class="ultimate" data-key="t"><small>T</small><span>궁극기</span></button></div></div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
-  <script src="game.js?v=52"></script>
+  <script src="game.js?v=53"></script>
 </body>
 </html>
