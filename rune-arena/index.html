@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b14">
+  <title>룬 아레나</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="menu" class="screen active">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <p class="eyebrow">8 WAVE BOSS RUSH</p>
+      <h1>룬 아레나</h1>
+      <p class="subtitle">원을 움직이고, 무기를 겨누고, 여덟 수호자를 쓰러뜨리세요.</p>
+      <div class="menu-actions">
+        <button id="startButton" class="primary">게임 시작</button>
+        <button class="ghost open-bosses">보스 도감</button>
+        <button id="helpButton" class="ghost">조작법</button>
+      </div>
+      <p class="save-note">최고 기록은 이 브라우저에 자동 저장됩니다.</p>
+    </section>
+
+    <section id="select" class="screen">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">SELECT UNIT</p>
+          <h2>캐릭터 선택</h2>
+        </div>
+        <button class="icon-button open-bosses" aria-label="보스 도감 열기">보스 8종</button>
+      </header>
+      <div id="characterCards" class="character-grid" role="radiogroup"></div>
+      <div id="selectedDetail" class="selected-detail"></div>
+      <footer class="screen-footer">
+        <button id="selectBack" class="ghost">뒤로</button>
+        <button id="battleButton" class="primary">전투 시작</button>
+      </footer>
+    </section>
+
+    <section id="game" class="screen game-screen">
+      <div class="game-topbar">
+        <div>
+          <span id="waveLabel">웨이브 1 / 8</span>
+          <strong id="bossName">보스</strong>
+        </div>
+        <div class="boss-hp-track"><i id="bossHpFill"></i></div>
+        <button id="pauseButton" class="icon-button" aria-label="일시정지">Ⅱ</button>
+      </div>
+      <div id="canvasWrap">
+        <canvas id="gameCanvas" width="1280" height="720" aria-label="룬 아레나 전투 화면"></canvas>
+        <div id="countdown" class="center-message"></div>
+      </div>
+      <div class="game-bottombar">
+        <div class="player-bars">
+          <span>체력 <b id="playerHpText">100 / 100</b></span>
+          <div class="mini-track"><i id="playerHpFill"></i></div>
+          <span>기력 <b id="energyText">100</b></span>
+          <div class="mini-track energy"><i id="energyFill"></i></div>
+        </div>
+        <div class="controls-strip">
+          <span><kbd>클릭</kbd> 공격 충전</span>
+          <span><kbd>Shift</kbd> 회피</span>
+          <span><kbd>Q</kbd> 스킬</span>
+          <span><kbd>E</kbd> 보조</span>
+          <span><kbd>Space</kbd> 궁극</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="result" class="screen">
+      <p id="resultEyebrow" class="eyebrow">RUN COMPLETE</p>
+      <h2 id="resultTitle">8웨이브 돌파</h2>
+      <div id="resultStats" class="result-stats"></div>
+      <div class="menu-actions">
+        <button id="retryButton" class="primary">같은 캐릭터로 다시</button>
+        <button id="resultSelectButton" class="ghost">캐릭터 선택</button>
+        <button id="resultMenuButton" class="ghost">첫 화면</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="bossDialog">
+    <div class="dialog-header">
+      <div>
+        <p class="eyebrow">BOSS ARCHIVE</p>
+        <h2>보스 도감</h2>
+      </div>
+      <button id="bossClose" class="icon-button" aria-label="닫기">×</button>
+    </div>
+    <div id="bossCards" class="boss-grid"></div>
+    <div class="page-controls">
+      <button id="bossPrev" class="ghost">← 이전</button>
+      <span id="bossPage">1 / 2</span>
+      <button id="bossNext" class="ghost">다음 →</button>
+    </div>
+  </dialog>
+
+  <dialog id="helpDialog">
+    <div class="dialog-header">
+      <h2>조작법</h2>
+      <button id="helpClose" class="icon-button" aria-label="닫기">×</button>
+    </div>
+    <div class="help-grid">
+      <div><kbd>W A S D</kbd><p>사각형 경기장 안에서 이동</p></div>
+      <div><kbd>짧은 클릭</kbd><p>빠른 검 휘두르기</p></div>
+      <div><kbd>조금 길게</kbd><p>검기 한 개 발사</p></div>
+      <div><kbd>완전 충전</kbd><p>조준 방향으로 돌진</p></div>
+      <div><kbd>Shift</kbd><p>짧은 무적 회피</p></div>
+      <div><kbd>Q E Space</kbd><p>캐릭터 고유 스킬</p></div>
+    </div>
+    <p class="tip">돌진으로 보스를 맞히면 2초 동안 검이 꽂힙니다. 둘 다 움직일 수 없지만 플레이어는 스킬을 사용할 수 있습니다.</p>
+  </dialog>
+
+  <div id="pauseOverlay" class="overlay" hidden>
+    <div class="pause-card">
+      <p class="eyebrow">PAUSED</p>
+      <h2>일시정지</h2>
+      <button id="resumeButton" class="primary">계속하기</button>
+      <button id="quitButton" class="ghost">첫 화면으로</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
